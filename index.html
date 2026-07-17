@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f6f8" />
+    <title>Attendly — Attendance, without the admin</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="brand-row">
+          <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+          <span class="brand-name">attendly</span>
+        </div>
+
+        <div class="sidebar-label">Workspace</div>
+        <nav class="primary-nav" aria-label="Primary navigation">
+          <button class="nav-item is-active" type="button" data-view="overview">
+            <span class="nav-icon" data-icon="grid"></span>
+            <span>Overview</span>
+          </button>
+          <button class="nav-item" type="button" data-view="timetable">
+            <span class="nav-icon" data-icon="clock"></span>
+            <span>Timetable</span>
+          </button>
+          <button class="nav-item" type="button" data-view="default-timetables">
+            <span class="nav-icon" data-icon="book"></span>
+            <span>Default Timetables</span>
+          </button>
+          <button class="nav-item" type="button" data-view="attendance">
+            <span class="nav-icon" data-icon="chart"></span>
+            <span>Your Attendance</span>
+          </button>
+          <button class="nav-item" type="button" data-view="cancelled">
+            <span class="nav-icon" data-icon="close"></span>
+            <span>Cancelled Classes</span>
+          </button>
+          <button class="nav-item" type="button" data-view="calendar">
+            <span class="nav-icon" data-icon="calendar"></span>
+            <span>Calendar</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-label subjects-label">Your subjects <span class="subject-count" id="subjectCount">0</span></div>
+        <div class="sidebar-subjects" id="sidebarSubjects"></div>
+
+        <div class="sidebar-bottom">
+          <div class="sidebar-tip">
+            <div class="tip-icon"><span data-icon="sparkle"></span></div>
+            <div>
+              <strong>Stay ahead</strong>
+              <p>Small check-ins keep your semester calm.</p>
+            </div>
+          </div>
+          <button class="theme-toggle" type="button" id="themeToggle">
+            <span class="nav-icon" data-icon="moon"></span>
+            <span>Dark mode</span>
+            <span class="toggle-track"><span class="toggle-knob"></span></span>
+          </button>
+          <button class="profile-row" id="profileButton" type="button" aria-label="Open profile settings">
+            <div class="avatar">AJ</div>
+            <div class="profile-copy"><strong id="profileName">Student</strong><span>B.Tech CE · Sem III</span></div>
+            <span class="more-icon" data-icon="more"></span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <button class="mobile-menu" type="button" id="mobileMenu" aria-label="Open navigation"><span data-icon="menu"></span></button>
+          <div class="breadcrumbs"><span>Workspace</span><span class="breadcrumb-chevron" data-icon="chevron-right"></span><strong id="breadcrumbTitle">Overview</strong></div>
+          <div class="topbar-actions">
+            <div class="today-chip"><span class="status-dot green-dot"></span><span id="todayLabel">Today, Jul 16</span></div>
+            <button class="button button-primary button-small" type="button" id="addSubjectButton" aria-label="Add subject"><span data-icon="plus"></span><span>Add subject</span></button>
+          </div>
+        </header>
+
+        <div class="content-wrap" id="appView"></div>
+      </main>
+    </div>
+
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+    <aside class="subject-drawer" id="subjectDrawer" aria-hidden="true" aria-label="Subject details">
+      <div id="drawerContent"></div>
+    </aside>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
